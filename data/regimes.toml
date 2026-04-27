@@ -1,0 +1,213 @@
+# ============================================================
+# se-regimes-pilot-edu-math-g8: Regime Registry
+# Single source of truth for all identity and persistence
+# regime profiles under the neutral substrate.
+#
+# Regime count: 9
+#   - 3 unsplit carrier regimes (OBL, OCC, REC)
+#   - 6 split profiles from 3 refined carrier classes:
+#       ENR -> ENR-L, ENR-I   (branching)
+#       CTX -> CTX-E, CTX-S   (decomposition)
+#       NOR -> NOR-C, NOR-S   (normative reorganization)
+# ============================================================
+
+[meta]
+version = "0.1.0"
+status = "draft"
+regime_count = 9
+split_count = 6
+unsplit_count = 3
+
+# ============================================================
+# UNSPLIT REGIMES (3)
+# No transformation-induced split pressure under BF,
+# decomposition, or nor_reorg,
+# the currently modeled transformation families.
+# ============================================================
+
+[[regime]]
+id = "OBL"
+label = "Obligation-bearing entity"
+carrier = ""
+split_theorem = ""
+persistence_invariant = """\
+Identity is preserved iff the obligation-bearing role and its binding \
+within a normative structure remain unchanged.\
+"""
+break_condition = """\
+Any change that alters the bearer of the obligation or its binding \
+to the governing normative structure.\
+"""
+# [regime.transform_response]
+# BF = "BRK"
+# decomposition = "BRK"
+# nor_reorg = "PRS"
+[regime.transform_response]
+BF = "INH"
+decomposition = "INH"
+nor_reorg = "INH"
+
+[[regime]]
+id = "OCC"
+label = "Time-indexed occurrence"
+carrier = ""
+split_theorem = ""
+persistence_invariant = """\
+Identity is preserved iff the occurrence is the same event instance \
+at the same time index.\
+"""
+break_condition = """\
+Any change in event identity or time index.\
+"""
+[regime.transform_response]
+BF = "BRK"
+decomposition = "BRK"
+nor_reorg = "PRS"
+
+[[regime]]
+id = "REC"
+label = "Descriptive record"
+carrier = ""
+split_theorem = ""
+persistence_invariant = """\
+Identity is preserved iff the record remains a faithful description \
+of the same underlying referent or occurrence.\
+"""
+break_condition = """\
+Any change that results in describing a different referent or occurrence, \
+or that introduces inconsistency with the described structure.\
+"""
+[regime.transform_response]
+BF = "BRK"
+decomposition = "BRK"
+nor_reorg = "PRS"
+
+# ============================================================
+# ENR SPLIT (Theorem: ENR_refinement)
+# Pre-split invariant: identity is preserved iff reference is
+# to the same enduring referent, independent of representation.
+# Break: any change that results in reference to a different referent.
+# Branching forces locus/artifact distinction.
+# ============================================================
+
+[[regime]]
+id = "ENR-L"
+label = "Enduring non-normative referent – Locus"
+carrier = "ENR"
+split_theorem = "ENR_refinement"
+persistence_invariant = """\
+Identity is preserved iff reference is to the same underlying locus, \
+independent of which artifact expresses it.\
+"""
+break_condition = """\
+Any change that results in reference to a different locus.\
+"""
+[regime.transform_response]
+BF = "PRS"
+decomposition = "INH"
+nor_reorg = "INH"
+
+[[regime]]
+id = "ENR-I"
+label = "Enduring non-normative referent – Instance"
+carrier = "ENR"
+split_theorem = "ENR_refinement"
+persistence_invariant = """\
+Identity is preserved iff reference is to the same constructed artifact.\
+"""
+break_condition = """\
+Any change that produces a distinct artifact, including branching \
+that generates a new constructed object.\
+"""
+[regime.transform_response]
+BF = "BRK"
+decomposition = "INH"
+nor_reorg = "INH"
+
+# ============================================================
+# CTX SPLIT (Theorem: CTX_refinement)
+# Pre-split invariant: identity is preserved iff the set of cases
+# to which the context applies and its organizing structure remain
+# unchanged.
+# Break: any change in applicability (case set) or organization.
+# Decomposition forces extensional/structural distinction.
+# ============================================================
+
+[[regime]]
+id = "CTX-E"
+label = "Applicability context – Extensional"
+carrier = "CTX"
+split_theorem = "CTX_refinement"
+persistence_invariant = """\
+Identity is preserved iff the context applies to the same set of cases, \
+regardless of how its internal structure is organized.\
+"""
+break_condition = """\
+Any change that alters the set of cases to which the context applies.\
+"""
+[regime.transform_response]
+BF = "INH"
+decomposition = "PRS"
+nor_reorg = "INH"
+
+[[regime]]
+id = "CTX-S"
+label = "Applicability context – Structural"
+carrier = "CTX"
+split_theorem = "CTX_refinement"
+persistence_invariant = """\
+Identity is preserved iff the organizing structure of the context \
+remains unchanged.\
+"""
+break_condition = """\
+Any change to the structural organization of the context, \
+including decomposition that alters that organization.\
+"""
+[regime.transform_response]
+BF = "INH"
+decomposition = "BRK"
+nor_reorg = "INH"
+
+# ============================================================
+# NOR SPLIT (Theorem: NOR_refinement)
+# Pre-split invariant: identity is preserved iff normative content
+# and its structural organization remain unchanged.
+# Break: any change to normative content or to the organization
+# that encodes it.
+# Normative reorganization forces content/structural distinction.
+# ============================================================
+
+[[regime]]
+id = "NOR-C"
+label = "Normative structure – Content"
+carrier = "NOR"
+split_theorem = "NOR_refinement"
+persistence_invariant = """\
+Identity is preserved iff the normative content remains unchanged, \
+regardless of how that content is structurally organized.\
+"""
+break_condition = """\
+Any change to what the normative structure requires or permits.\
+"""
+[regime.transform_response]
+BF = "INH"
+decomposition = "INH"
+nor_reorg = "PRS"
+
+[[regime]]
+id = "NOR-S"
+label = "Normative structure – Structural"
+carrier = "NOR"
+split_theorem = "NOR_refinement"
+persistence_invariant = """\
+Identity is preserved iff the structural organization encoding \
+the normative content remains unchanged.\
+"""
+break_condition = """\
+Any change to the structural organization, including reorganization \
+that preserves content but alters structure.\
+"""
+[regime.transform_response]
+BF = "INH"
+decomposition = "INH"
+nor_reorg = "BRK"

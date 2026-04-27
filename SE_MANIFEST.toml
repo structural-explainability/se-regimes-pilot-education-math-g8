@@ -1,0 +1,63 @@
+# ============================================================
+# SE_MANIFEST.toml (Repository Declaration)
+# ============================================================
+
+schema = "se-manifest-2"
+
+# === Identity ===
+
+[meta]
+name = "se-regimes-pilot-education-math-g8"
+org = "structural-explainability"
+status = "active"
+version = "0.1.0"
+
+[repo]
+class = "regimes-pilot"
+summary = "Grade 8 mathematics stress-test case suite for SE regime profiles."
+
+# === Structural contract ===
+
+[depends]
+required = ["se-regimes"]
+optional = []
+
+[provides]
+artifacts = [
+  "education-math-g8-cases",
+  "stress-report",
+]
+
+[scope]
+includes = [
+  "stress-test cases for regime profiles",
+  "cases covering transformation families",
+  "domain: education.math.g8",
+]
+
+excludes = [
+  "regime registry",
+  "transformation family definitions",
+  "regime engine",
+  "cases outside education.math.g8",
+]
+
+
+[validation]
+entrypoint = "uv run python -m se_regimes_pilot report"
+
+# === Behavior / governance ===
+
+[naming]
+pattern = "se-regimes-pilot-*"
+
+[governance]
+authority = "structural-explainability"
+
+# === External references ===
+
+[citation]
+cff = "CITATION.cff"
+
+[traceability]
+identifier_map = "cases/education/math/g8"

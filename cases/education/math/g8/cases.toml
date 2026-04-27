@@ -1,0 +1,90 @@
+# ============================================================
+# cases/education/math/g8/cases.toml
+# Stress-test cases for SE regime profiles
+# Domain: education.math.g8
+# ============================================================
+
+# --- ENR SPLIT: branching ---
+# A fraction written as 3/4 vs the ratio 3:4.
+# Same underlying mathematical locus; different notational artifacts.
+
+[[case]]
+id = "edu-math-g8-enr-l-001"
+domain = "education.math.g8"
+description = "3/4 and 3:4 refer to the same proportional locus despite differing notation."
+candidate_regime = "ENR-L"
+transformations = ["BF"]
+notes = "Tests locus identity under branching: same referent, different artifact."
+[[case.expected]]
+after = "BF"
+regime = "ENR-L"
+outcome = "PRS"
+
+[[case]]
+id = "edu-math-g8-enr-i-001"
+domain = "education.math.g8"
+description = "The specific written artifact '3/4' does not survive branching into '3:4'."
+candidate_regime = "ENR-I"
+transformations = ["BF"]
+notes = "Tests artifact identity under branching: distinct objects produced."
+[[case.expected]]
+after = "BF"
+regime = "ENR-I"
+outcome = "BRK"
+
+# --- CTX SPLIT: decomposition ---
+# A grade 8 standards context defined as "linear equations AND statistics".
+# Decomposition into sub-contexts can preserve applicability while
+# altering internal structure.
+
+[[case]]
+id = "edu-math-g8-ctx-e-001"
+domain = "education.math.g8"
+description = "G8 math context decomposed into linear-equations + statistics sub-contexts covers same student cases."
+candidate_regime = "CTX-E"
+transformations = ["decomposition"]
+notes = "Tests extensional identity under decomposition: same case set, changed structure."
+[[case.expected]]
+after = "decomposition"
+regime = "CTX-E"
+outcome = "PRS"
+
+[[case]]
+id = "edu-math-g8-ctx-s-001"
+domain = "education.math.g8"
+description = "G8 math context decomposed into sub-contexts is no longer the same structural organization."
+candidate_regime = "CTX-S"
+transformations = ["decomposition"]
+notes = "Tests structural identity under decomposition: organization changed."
+[[case.expected]]
+after = "decomposition"
+regime = "CTX-S"
+outcome = "BRK"
+
+# --- NOR SPLIT: normative reorganization ---
+# A grade 8 proficiency standard expressed at different levels of detail.
+# Refinement can preserve what the standard requires while altering organization.
+
+[[case]]
+id = "edu-math-g8-nor-c-001"
+domain = "education.math.g8"
+description = "A G8 linear equations standard reorganized into sub-objectives preserves what proficiency requires."
+candidate_regime = "NOR-C"
+transformations = ["nor_reorg"]
+notes = "Tests content identity under normative reorganization: same requirements, different structure."
+[[case.expected]]
+after = "nor_reorg"
+regime = "NOR-C"
+outcome = "PRS"
+
+[[case]]
+id = "edu-math-g8-nor-s-001"
+domain = "education.math.g8"
+description = "A G8 linear equations standard reorganized into sub-objectives is no longer the same structural form."
+candidate_regime = "NOR-S"
+transformations = ["nor_reorg"]
+notes = "Tests structural identity under normative reorganization: organization changed."
+[[case.expected]]
+after = "nor_reorg"
+regime = "NOR-S"
+outcome = "BRK"

@@ -1,0 +1,61 @@
+# ============================================================
+# CITATION.cff (How to cite this project)
+# ============================================================
+
+# REQ.UNIVERSAL: Professional open projects SHOULD include this file.
+# USAGE: See https://citation-file-format.github.io/ for details.
+
+cff-version: "1.2.0"
+type: software
+
+title: "Structural Explainability Regime Pilot: Education Mathematics Grade 8"
+version: "0.1.0"
+date-released: "2026-04-27"
+
+authors:
+  - family-names: Case
+    given-names: Denise M.
+    orcid: "https://orcid.org/0000-0001-6165-7389"
+    affiliation: "Northwest Missouri State University, School of Computer Science and Information Systems, Maryville, MO, USA"
+
+repository-code: "https://github.com/structural-explainability/se-regimes-pilot-edu-math-g8"
+url: "https://github.com/structural-explainability/se-regimes-pilot-edu-math-g8"
+
+license: MIT
+
+abstract: >
+  Grade 8 mathematics stress-test case suite for Structural Explainability
+  identity and persistence regime profiles. This repository provides domain
+  cases used to evaluate regime behavior under controlled transformation
+  families while depending on the regime registry and engine defined by
+  se-regimes.
+
+keywords:
+  # identity
+  - structural-explainability
+  - identity-regimes
+  - persistence-regimes
+  - regime-pilot
+  - education
+  - mathematics
+  - grade-8
+  - conformance-testing
+  - stress-testing
+
+  # practices
+  - conformance-testing
+  - stress-testing
+  - declarative-specification
+
+  # ecosystem
+  - toml
+  - python
+  - github
+  - open-source
+  - uv
+  - ruff
+  - pyright
+  - hatchling
+  - zensical
+
+message: "If you use this work, please cite it using the metadata in this file."

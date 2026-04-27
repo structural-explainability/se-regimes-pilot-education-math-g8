@@ -1,0 +1,42 @@
+# ============================================================
+# se-regimes-pilot-edu-math-g8: Transformation Family Definitions
+# Each family is a named class of admissible structural
+# operations. Regimes declare their response (PRS/BRK/INH)
+# per family in regimes.toml.
+# ============================================================
+
+[meta]
+version = "0.1.0"
+status = "draft"
+
+[[family]]
+id = "BF"
+label = "Branching"
+description = """
+The branching transformation BF produces distinct objects from
+a single source. Identity under BF depends on whether the
+regime tracks the locus (PRS) or the artifact (BRK).
+"""
+split_trigger_for = ["ENR"]
+
+[[family]]
+id = "decomposition"
+label = "Decomposition"
+description = """
+Decomposition changes the internal organization of a structure
+by partitioning or recomposing its parts. Identity under
+decomposition depends on whether the regime tracks extensional
+applicability (PRS) or internal organization (BRK).
+"""
+split_trigger_for = ["CTX"]
+
+[[family]]
+id = "nor_reorg"
+label = "Normative Reorganization"
+description = """
+Normative reorganization changes how normative content is
+structured without necessarily changing what it encodes.
+Identity under nor_reorg depends on whether the regime tracks
+content (PRS) or structural organization (BRK).
+"""
+split_trigger_for = ["NOR"]
