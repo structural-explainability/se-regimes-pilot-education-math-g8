@@ -1,7 +1,7 @@
 # ============================================================
 # .github/workflows/ci-python-zensical.yml (Continuous Integration)
 # ============================================================
-# Updated: 2026-04-22
+# Updated: 2026-04-27 (repo-specific execution step added)
 #
 # WHY-FILE: Validate repository hygiene, Python correctness, and documentation builds.
 # REQ: CI MUST NOT introduce arbitrary rules that are not reproducible locally.
@@ -122,3 +122,29 @@ jobs:
         # OBS: Build only; deployment is handled by a separate workflow if needed.
         # OBS: Conditional on zensical.toml so this workflow is reusable across
         #      repos that may not yet have docs configured.
+
+      # ============================================================
+      # E) EXECUTION: Module entrypoints
+      # ============================================================
+
+      - name: E1) Run module entrypoints (core + pilot)
+        run: |
+          # --- core registry ---
+          uv run python -m se_regimes.registry
+          uv run python -m se_regimes show
+          uv run python -m se_regimes report
+
+          # --- pilot cases (enforced) ---
+          uv run python -m se_regimes_pilot report | tee pilot.log
+
+          # --- assert correctness ---
+          grep -q "Failed: 0" pilot.log
+
+          # --- verify artifact ---
+          test -f reports/stress_report.md
+        # WHY: Validates public module entrypoints defined by the repository contract.
+        # WHY: Ensures both registry (theory) and pilot cases (evidence) execute end-to-end.
+        # WHY: Fails CI if any regime case fails (not just execution success).
+        # WHY: Catches CLI wiring errors, data loading issues, and report generation failures.
+        # OBS: Complements pytest by exercising real execution paths.
+        # OBS: Artifact check guards against silent path or write failures.
