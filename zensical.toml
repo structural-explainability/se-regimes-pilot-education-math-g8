@@ -5,9 +5,9 @@
 
 [project]
 site_name = "SE Kernel"
-site_url = "https://structural-explainability.github.io/se-regimes-pilot-edu-math-g8/"
-repo_url = "https://github.com/structural-explainability/se-regimes-pilot-edu-math-g8"
-repo_name = "structural-explainability/se-regimes-pilot-edu-math-g8"
+site_url = "https://structural-explainability.github.io/se-regimes-pilot-education-math-g8/"
+repo_url = "https://github.com/structural-explainability/se-regimes-pilot-education-math-g8"
+repo_name = "structural-explainability/se-regimes-pilot-education-math-g8"
 site_description = "Project documentation"
 docs_dir = "docs" # source directory for documentation markdown files
 site_dir = "site" # output directory for generated site (ignored by Git; not in repo)
@@ -16,7 +16,7 @@ edit_uri = "edit/main/docs/" # "Edit this page" links (GitHub)
 [project.extra]
 # WHY: Social links provide easy access to project repositories and profiles.
 social = [
-    {icon = "fontawesome/brands/github", link = "https://github.com/structural-explainability/se-regimes-pilot-edu-math-g8" },
+    {icon = "fontawesome/brands/github", link = "https://github.com/structural-explainability/se-regimes-pilot-education-math-g8" },
 ]
 
 # ------------------------------------------------------------

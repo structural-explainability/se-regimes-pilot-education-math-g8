@@ -1,8 +1,13 @@
 # ============================================================
+# Repo: se-regimes-pilot-education-math-g8
 # cases/education/math/g8/cases.toml
 # Stress-test cases for SE regime profiles
 # Domain: education.math.g8
+#
+# OBS: Pilot cases are synthetic stress cases.
+# They do not cite external mapping artifacts.
 # ============================================================
+
 
 # --- ENR SPLIT: branching ---
 # A fraction written as 3/4 vs the ratio 3:4.
@@ -88,3 +93,276 @@ notes = "Tests structural identity under normative reorganization: organization 
 after = "nor_reorg"
 regime = "NOR-S"
 outcome = "BRK"
+
+# --- OBL: obligation-bearing entity (unsplit, all families INH) ---
+# Synthetic: a student obligated to demonstrate proficiency in a G8 standard.
+
+[[case]]
+id = "edu-math-g8-obl-bf-001"
+domain = "education.math.g8"
+description = "A student obligation to demonstrate G8 linear equations proficiency. Branching the standard does not act on the obligation-bearing role."
+candidate_regime = "OBL"
+transformations = ["BF"]
+notes = "INH: branching does not operate on obligation-bearing identity criteria."
+[[case.expected]]
+after = "BF"
+regime = "OBL"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-obl-decomp-001"
+domain = "education.math.g8"
+description = "A student obligation to demonstrate G8 linear equations proficiency. Decomposing the standard into sub-objectives does not act on the obligation-bearing role."
+candidate_regime = "OBL"
+transformations = ["decomposition"]
+notes = "INH: decomposition does not operate on obligation-bearing identity criteria."
+[[case.expected]]
+after = "decomposition"
+regime = "OBL"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-obl-nor-001"
+domain = "education.math.g8"
+description = "A student obligation to demonstrate G8 linear equations proficiency. Reorganizing the normative structure does not alter which entity bears the obligation."
+candidate_regime = "OBL"
+transformations = ["nor_reorg"]
+notes = "INH: normative reorganization does not operate on obligation-bearing identity criteria."
+[[case.expected]]
+after = "nor_reorg"
+regime = "OBL"
+outcome = "INH"
+
+# --- OCC: time-indexed occurrence (unsplit, all families INH) ---
+# Synthetic: a G8 mathematics assessment administration event.
+
+[[case]]
+id = "edu-math-g8-occ-bf-001"
+domain = "education.math.g8"
+description = "A G8 mathematics assessment administration event. Branching the assessment framework does not act on the time-indexed occurrence of the event."
+candidate_regime = "OCC"
+transformations = ["BF"]
+notes = "INH: branching does not operate on time-indexed occurrence identity criteria."
+[[case.expected]]
+after = "BF"
+regime = "OCC"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-occ-decomp-001"
+domain = "education.math.g8"
+description = "A G8 mathematics assessment administration event. Decomposing the assessment framework does not act on the time-indexed occurrence of the event."
+candidate_regime = "OCC"
+transformations = ["decomposition"]
+notes = "INH: decomposition does not operate on time-indexed occurrence identity criteria."
+[[case.expected]]
+after = "decomposition"
+regime = "OCC"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-occ-nor-001"
+domain = "education.math.g8"
+description = "A G8 mathematics assessment administration event. Reorganizing the normative structure governing the assessment does not alter the time-indexed event itself."
+candidate_regime = "OCC"
+transformations = ["nor_reorg"]
+notes = "INH: normative reorganization does not operate on time-indexed occurrence identity criteria."
+[[case.expected]]
+after = "nor_reorg"
+regime = "OCC"
+outcome = "INH"
+
+# --- REC: descriptive record (unsplit, all families INH) ---
+# Synthetic: a record of a G8 standards alignment assessment.
+
+[[case]]
+id = "edu-math-g8-rec-bf-001"
+domain = "education.math.g8"
+description = "A record of a G8 linear equations standards alignment. Branching the source standard does not act on the descriptive record of the alignment."
+candidate_regime = "REC"
+transformations = ["BF"]
+notes = "INH: branching does not operate on descriptive record identity criteria."
+[[case.expected]]
+after = "BF"
+regime = "REC"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-rec-decomp-001"
+domain = "education.math.g8"
+description = "A record of a G8 linear equations standards alignment. Decomposing the applicability context does not act on the descriptive record of the alignment."
+candidate_regime = "REC"
+transformations = ["decomposition"]
+notes = "INH: decomposition does not operate on descriptive record identity criteria."
+[[case.expected]]
+after = "decomposition"
+regime = "REC"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-rec-nor-001"
+domain = "education.math.g8"
+description = "A record of a G8 linear equations standards alignment. Reorganizing the normative structure of the target standard does not alter what the alignment record describes."
+candidate_regime = "REC"
+transformations = ["nor_reorg"]
+notes = "INH: normative reorganization does not operate on descriptive record identity criteria."
+[[case.expected]]
+after = "nor_reorg"
+regime = "REC"
+outcome = "INH"
+
+# --- Cross-family negative tests ---
+# Assert INH where split regimes have no defined split pressure.
+# These confirm that regime behavior does not leak across transformation families.
+# A failure here means the registry has an unexpected PRS/BRK entry
+# or the engine is misrouting a transformation.
+
+# ENR-L and ENR-I: no split pressure under decomposition or nor_reorg
+
+[[case]]
+id = "edu-math-g8-enr-l-decomp-neg"
+domain = "education.math.g8"
+description = "ENR-L has no defined response to decomposition. Decomposing a G8 standards context does not act on locus identity of the referent."
+candidate_regime = "ENR-L"
+transformations = ["decomposition"]
+notes = "Negative test: ENR-L is defined only under BF. Decomposition must be INH."
+[[case.expected]]
+after = "decomposition"
+regime = "ENR-L"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-enr-l-nor-neg"
+domain = "education.math.g8"
+description = "ENR-L has no defined response to nor_reorg. Reorganizing a normative standard does not act on locus identity of the referent."
+candidate_regime = "ENR-L"
+transformations = ["nor_reorg"]
+notes = "Negative test: ENR-L is defined only under BF. Normative reorganization must be INH."
+[[case.expected]]
+after = "nor_reorg"
+regime = "ENR-L"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-enr-i-decomp-neg"
+domain = "education.math.g8"
+description = "ENR-I has no defined response to decomposition. Decomposing a G8 standards context does not act on artifact identity of the referent."
+candidate_regime = "ENR-I"
+transformations = ["decomposition"]
+notes = "Negative test: ENR-I is defined only under BF. Decomposition must be INH."
+[[case.expected]]
+after = "decomposition"
+regime = "ENR-I"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-enr-i-nor-neg"
+domain = "education.math.g8"
+description = "ENR-I has no defined response to nor_reorg. Reorganizing a normative standard does not act on artifact identity of the referent."
+candidate_regime = "ENR-I"
+transformations = ["nor_reorg"]
+notes = "Negative test: ENR-I is defined only under BF. Normative reorganization must be INH."
+[[case.expected]]
+after = "nor_reorg"
+regime = "ENR-I"
+outcome = "INH"
+
+# CTX-E and CTX-S: no split pressure under BF or nor_reorg
+
+[[case]]
+id = "edu-math-g8-ctx-e-bf-neg"
+domain = "education.math.g8"
+description = "CTX-E has no defined response to BF. Branching a G8 standards context into notational variants does not act on extensional applicability."
+candidate_regime = "CTX-E"
+transformations = ["BF"]
+notes = "Negative test: CTX-E is defined only under decomposition. BF must be INH."
+[[case.expected]]
+after = "BF"
+regime = "CTX-E"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-ctx-e-nor-neg"
+domain = "education.math.g8"
+description = "CTX-E has no defined response to nor_reorg. Reorganizing a normative standard does not act on extensional applicability of the context."
+candidate_regime = "CTX-E"
+transformations = ["nor_reorg"]
+notes = "Negative test: CTX-E is defined only under decomposition. Normative reorganization must be INH."
+[[case.expected]]
+after = "nor_reorg"
+regime = "CTX-E"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-ctx-s-bf-neg"
+domain = "education.math.g8"
+description = "CTX-S has no defined response to BF. Branching a G8 standards context into notational variants does not act on structural organization of the context."
+candidate_regime = "CTX-S"
+transformations = ["BF"]
+notes = "Negative test: CTX-S is defined only under decomposition. BF must be INH."
+[[case.expected]]
+after = "BF"
+regime = "CTX-S"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-ctx-s-nor-neg"
+domain = "education.math.g8"
+description = "CTX-S has no defined response to nor_reorg. Reorganizing a normative standard does not act on structural organization of the context."
+candidate_regime = "CTX-S"
+transformations = ["nor_reorg"]
+notes = "Negative test: CTX-S is defined only under decomposition. Normative reorganization must be INH."
+[[case.expected]]
+after = "nor_reorg"
+regime = "CTX-S"
+outcome = "INH"
+
+# NOR-C and NOR-S: no split pressure under BF or decomposition
+
+[[case]]
+id = "edu-math-g8-nor-c-bf-neg"
+domain = "education.math.g8"
+description = "NOR-C has no defined response to BF. Branching a normative standard into notational variants does not act on normative content identity."
+candidate_regime = "NOR-C"
+transformations = ["BF"]
+notes = "Negative test: NOR-C is defined only under nor_reorg. BF must be INH."
+[[case.expected]]
+after = "BF"
+regime = "NOR-C"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-nor-c-decomp-neg"
+domain = "education.math.g8"
+description = "NOR-C has no defined response to decomposition. Decomposing an applicability context does not act on normative content identity."
+candidate_regime = "NOR-C"
+transformations = ["decomposition"]
+notes = "Negative test: NOR-C is defined only under nor_reorg. Decomposition must be INH."
+[[case.expected]]
+after = "decomposition"
+regime = "NOR-C"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-nor-s-bf-neg"
+domain = "education.math.g8"
+description = "NOR-S has no defined response to BF. Branching a normative standard into notational variants does not act on normative structural identity."
+candidate_regime = "NOR-S"
+transformations = ["BF"]
+notes = "Negative test: NOR-S is defined only under nor_reorg. BF must be INH."
+[[case.expected]]
+after = "BF"
+regime = "NOR-S"
+outcome = "INH"
+
+[[case]]
+id = "edu-math-g8-nor-s-decomp-neg"
+domain = "education.math.g8"
+description = "NOR-S has no defined response to decomposition. Decomposing an applicability context does not act on normative structural identity."
+candidate_regime = "NOR-S"
+transformations = ["decomposition"]
+notes = "Negative test: NOR-S is defined only under nor_reorg. Decomposition must be INH."
+[[case.expected]]
+after = "decomposition"
+regime = "NOR-S"
+outcome = "INH"

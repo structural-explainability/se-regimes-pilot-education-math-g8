@@ -281,11 +281,11 @@ wheels = [
 
 [[package]]
 name = "se-regimes"
-version = "0.1.2.dev2+ge545d8ec0"
-source = { git = "https://github.com/structural-explainability/se-regimes#e545d8ec023170393e51a320b5b10cc0610587d3" }
+version = "0.1.2.dev4+g210aa9e39"
+source = { git = "https://github.com/structural-explainability/se-regimes#210aa9e3941f964f8dbda7cd09d4b4d5ed79e91b" }
 
 [[package]]
-name = "se-regimes-pilot-edu-math-g8"
+name = "se-regimes-pilot-education-math-g8"
 source = { editable = "." }
 dependencies = [
     { name = "se-regimes" },

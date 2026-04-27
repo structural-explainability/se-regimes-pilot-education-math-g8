@@ -1,5 +1,5 @@
 # ============================================================
-# se-regimes-pilot-edu-math-g8: Transformation Family Definitions
+# se-regimes-pilot-education-math-g8: Transformation Family Definitions
 # Each family is a named class of admissible structural
 # operations. Regimes declare their response (PRS/BRK/INH)
 # per family in regimes.toml.

@@ -32,7 +32,7 @@ def write_report(
     family_ids = list(registry.families.keys())
 
     lines += [
-        "# se-regimes-pilot-edu-math-g8 stress report",
+        "# se-regimes-pilot-education-math-g8 stress report",
         "",
         f"**Regimes:** {len(registry.regimes)}  "
         f"**Families:** {len(registry.families)}  "

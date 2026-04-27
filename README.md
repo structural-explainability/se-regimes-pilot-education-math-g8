@@ -1,13 +1,13 @@
-# se-regimes-pilot-edu-math-g8
+# se-regimes-pilot-education-math-g8
 
-[![Docs Site](https://img.shields.io/badge/docs-site-blue?logo=github)](https://structural-explainability.github.io/se-regimes-pilot-edu-math-g8/)
-[![Repo](https://img.shields.io/badge/repo-GitHub-black?logo=github)](https://github.com/structural-explainability/se-regimes-pilot-edu-math-g8)
+[![Docs Site](https://img.shields.io/badge/docs-site-blue?logo=github)](https://structural-explainability.github.io/se-regimes-pilot-education-math-g8/)
+[![Repo](https://img.shields.io/badge/repo-GitHub-black?logo=github)](https://github.com/structural-explainability/se-regimes-pilot-education-math-g8)
 [![Python 3.15+](https://img.shields.io/badge/python-3.15%2B-blue?logo=python)](./pyproject.toml)
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](./LICENSE)
 
-[![CI](https://github.com/structural-explainability/se-regimes-pilot-edu-math-g8/actions/workflows/ci-python-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-regimes-pilot-edu-math-g8/actions/workflows/ci-python-zensical.yml)
-[![Docs](https://github.com/structural-explainability/se-regimes-pilot-edu-math-g8/actions/workflows/deploy-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-regimes-pilot-edu-math-g8/actions/workflows/deploy-zensical.yml)
-[![Links](https://github.com/structural-explainability/se-regimes-pilot-edu-math-g8/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-regimes-pilot-edu-math-g8/actions/workflows/links.yml)
+[![CI](https://github.com/structural-explainability/se-regimes-pilot-education-math-g8/actions/workflows/ci-python-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-regimes-pilot-education-math-g8/actions/workflows/ci-python-zensical.yml)
+[![Docs](https://github.com/structural-explainability/se-regimes-pilot-education-math-g8/actions/workflows/deploy-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-regimes-pilot-education-math-g8/actions/workflows/deploy-zensical.yml)
+[![Links](https://github.com/structural-explainability/se-regimes-pilot-education-math-g8/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-regimes-pilot-education-math-g8/actions/workflows/links.yml)
 
 > Grade 8 mathematics stress-test case suite for Structural Explainability regimes.
 
@@ -45,9 +45,9 @@ open a machine terminal in `Repos` or where you want the project:
 
 ```shell
 # Replace username with YOUR GitHub username.
-git clone https://github.com/username/se-regimes-pilot-edu-math-g8
+git clone https://github.com/username/se-regimes-pilot-education-math-g8
 
-cd se-regimes-pilot-edu-math-g8
+cd se-regimes-pilot-education-math-g8
 code .
 ```
 
