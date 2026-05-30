@@ -2,31 +2,50 @@
 # SE_MANIFEST.toml (Repository Declaration)
 # ============================================================
 
-schema = "se-manifest-2"
+schema = "se-manifest-schema"
+schema_url = "https://raw.githubusercontent.com/structural-explainability/se-manifest-schema/main/manifest-schema.toml"
 
-# === Identity ===
+# === Framework Context ===
 
 [meta]
-name = "se-regimes-pilot-education-math-g8"
-org = "structural-explainability"
-status = "active"
-version = "0.1.0"
+framework = "Structural Explainability"
+framework_url = "https://github.com/structural-explainability"
+purpose = "Declares this repository's role in the Structural Explainability ecosystem."
+
+# === Repository Identity ===
 
 [repo]
-class = "regimes-pilot"
+name = "se-regimes-pilot-education-math-g8"
+org = "structural-explainability"
+class = "regimes"
+kind = "pilot"
+status = "active"
+since = "2026"
 summary = "Grade 8 mathematics stress-test case suite for SE regime profiles."
 
-# === Structural contract ===
+# === Layer Position ===
+
+[layer]
+space = "structural-explainability"
+role  = "regime-execution"
+
+# === Dependency Declarations ===
 
 [depends]
-required = ["se-regimes"]
+required = [
+  { repo = { repo = "se-regimes", kind = "semantic", version = "main" }, kind = "semantic", version = "main" },
+]
 optional = []
+
+# === Provided Artifacts ===
 
 [provides]
 artifacts = [
   "education-math-g8-cases",
   "stress-report",
 ]
+
+# === Scope ===
 
 [scope]
 includes = [
@@ -53,6 +72,12 @@ pattern = "se-regimes-pilot-*"
 
 [governance]
 authority = "structural-explainability"
+
+# === Compatibility ===
+
+[compatibility]
+constitution = "se-constitution"
+kernel = "se-kernel"
 
 # === External references ===
 

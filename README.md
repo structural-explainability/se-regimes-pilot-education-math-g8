@@ -9,7 +9,8 @@
 [![Docs](https://github.com/structural-explainability/se-regimes-pilot-education-math-g8/actions/workflows/deploy-zensical.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-regimes-pilot-education-math-g8/actions/workflows/deploy-zensical.yml)
 [![Links](https://github.com/structural-explainability/se-regimes-pilot-education-math-g8/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/structural-explainability/se-regimes-pilot-education-math-g8/actions/workflows/links.yml)
 
-> Grade 8 mathematics stress-test case suite for Structural Explainability regimes.
+> Grade 8 mathematics stress-test cases used to verify how
+> Structural Explainability regimes behave under different transformations.
 
 ## Owns
 
@@ -18,6 +19,9 @@
 ## Includes
 
 ### Stress-test cases
+
+Each regime defines how identity behaves
+under a specific type of transformation.
 
 - ENR-L, ENR-I: locus vs. instance identity under branching
 - CTX-E, CTX-S: extensional vs. structural context under decomposition
@@ -28,6 +32,7 @@
 
 - regime × transformation family coverage matrix
 - per-case pass/fail results
+- complete coverage of all regime–transformation combinations (9 × 3)
 
 ### Depends on
 
@@ -40,12 +45,10 @@
 
 ### In a machine terminal
 
-After you get a copy of this repo in your own GitHub account,
-open a machine terminal in `Repos` or where you want the project:
+Open a machine terminal where you want the project:
 
 ```shell
-# Replace username with YOUR GitHub username.
-git clone https://github.com/username/se-regimes-pilot-education-math-g8
+git clone https://github.com/structural-explainability/se-regimes-pilot-education-math-g8
 
 cd se-regimes-pilot-education-math-g8
 code .
@@ -66,7 +69,11 @@ uvx pre-commit run --all-files
 git add -A
 uvx pre-commit run --all-files
 
-# run the module
+# run the module (core registry / theory & rules)
+uv run python -m se_regimes.registry
+uv run python -m se_regimes show
+
+# run pilot stress report (cases / evidence)
 uv run python -m se_regimes_pilot report
 
 # do chores
